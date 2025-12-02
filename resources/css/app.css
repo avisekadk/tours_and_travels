@@ -1,11 +1,142 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* Custom CSS Variables */
+:root {
+    /* Primary Colors */
+    --himalayan-blue: #1E3A8A;
+    --himalayan-teal: #0D9488;
+    --mountain-blue-dark: #0F172A;
+    --mountain-blue-light: #3B82F6;
+    
+    /* Secondary Colors */
+    --sunset-orange: #F97316;
+    --prayer-flag-red: #DC2626;
+    --saffron-orange: #FB923C;
+    
+    /* Accent Colors */
+    --golden-temple: #F59E0B;
+    --golden-light: #FCD34D;
+    --golden-dark: #D97706;
+    
+    /* Neutral Colors */
+    --everest-white: #FFFFFF;
+    --cloud-gray: #F9FAFB;
+    --mist-gray: #F3F4F6;
+    --valley-gray: #e5e7eb38;
+    --stone-gray: #9CA3AF;
+    --slate-gray: #64748B;
+    --charcoal: #334155;
+    --nepal-black: #0F172A;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* Custom Utilities */
+@layer components {
+    .btn {
+        @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    }
+    
+    .btn-primary {
+        @apply bg-blue-600 text-white hover:bg-blue-700 active:scale-95;
+    }
+    
+    .btn-secondary {
+        @apply bg-teal-600 text-white hover:bg-teal-700 active:scale-95;
+    }
+    
+    .btn-outline {
+        @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white active:scale-95;
+    }
+    
+    .card {
+        @apply bg-white rounded-xl shadow-lg overflow-hidden;
+    }
+    
+    .input-field {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    }
+    
+    .glass-effect {
+        @apply bg-white bg-opacity-20 backdrop-blur-lg border border-white border-opacity-30;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3B82F6;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
