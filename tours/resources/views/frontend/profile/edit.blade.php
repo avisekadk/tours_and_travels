@@ -1,4 +1,4 @@
-{{-- resources/views/frontend/profile/edit.blade.php }}
+{{-- resources/views/frontend/profile/edit.blade.php --}}
 @extends('frontend.layouts.master')
 
 @section('title', 'Edit Profile - HimalayaVoyage')
