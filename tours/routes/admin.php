@@ -38,10 +38,13 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     
     // Bookings
     Route::resource('bookings', BookingController::class)->names([
-        'index' => 'admin.bookings.index',
-        'show' => 'admin.bookings.show',
-        'edit' => 'admin.bookings.edit',
-        'update' => 'admin.bookings.update',
+        'index'   => 'admin.bookings.index',
+        'create'  => 'admin.bookings.create', 
+        'store'   => 'admin.bookings.store',   
+        'show'    => 'admin.bookings.show',
+        'edit'    => 'admin.bookings.edit',
+        'update'  => 'admin.bookings.update',
+        'destroy' => 'admin.bookings.destroy', 
     ]);
     Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('admin.bookings.confirm');
     Route::post('bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('admin.bookings.cancel');
